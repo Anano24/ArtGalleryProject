@@ -1,9 +1,10 @@
 from flask import Flask
 
 from src.config import Config
+from src.commands import init_db, populate_db
 from src.extentions import db, migrate, login_manager
-from src.views import main_blueprint, gallery_blueprint, about_blueprint
-# from src.models import User, Product, ProductCategory
+from src.views import main_blueprint, gallery_blueprint, about_blueprint, product_blueprint
+from src.models import Product
 # from src.admin import admin, SecureModelView, SecureIndexView, UserView, ProductView, RequestView
 
 
@@ -13,13 +14,13 @@ BLUEPRINTS = [
     main_blueprint,
     gallery_blueprint,
     about_blueprint,
-    # product_blueprint
+    product_blueprint
 ]
 
-# COMMANDS = [
-#     init_db,
-#     populate_db
-# ]
+COMMANDS = [
+    init_db,
+    populate_db
+]
 
 
 def create_app():
@@ -28,7 +29,7 @@ def create_app():
 
     register_extension(app)
     register_blueprints(app)
-    # register_commands(app)
+    register_commands(app)
 
     return app
 
@@ -55,9 +56,9 @@ def register_extension(app):
     # admin.add_view(UserView(User, db.session))
     
 
-# def register_commands(app):
-#     for command in COMMANDS:
-#         app.cli.add_command(command)
+def register_commands(app):
+    for command in COMMANDS:
+        app.cli.add_command(command)
 
 
 def register_blueprints(app):
