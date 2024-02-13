@@ -2,38 +2,50 @@
 
 
 {% block content %}
-  <div class="container-md product-box">
+<div>
+  <div class="container-md product-box" >
     <div class="baner-box">
       <h1 class="shop-baner"> Find your favorite one! </h1>
     </div>
     <hr>
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
       {% for product in products%}
-      <div class="col">
-        <div class="card h-100">
-          <img src="{{ url_for('static', filename='img/' + product.img) }}" class="card-img-top" alt="{{product.title}}" style="height: 55%;">
-          <div class="card-body">
-            <h5 class="card-title">Product name: {{ product.title}}</h5>
-            <p class="card-text"> Price: {{ product.price}}</p>
-            <a href="{{ url_for('product.product', id=product.id)}}" class="btn btn-primary">Buy Now</a>
-            <a href="{{ url_for('product.product', id=product.id)}}" class="btn btn-primary">View</a>
+      <div class="col mt-5 mb-5">
+        <div class="card h-100" style="border: none; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+          <a href="{{ url_for('product.product', id=product.id)}}">
+            <img src="{{ url_for('static', filename='img/' + product.img) }}" class="card-img-top" alt="{{product.title}}" >
+          </a>
+          <div class="card-body" style="padding: 10px 0 0; text-align: center;">
+            <h5 class="card-title">{{ product.title}}</h5>
+            <p class="card-text" style="color: red;"> {{ product.price}}$</p>
+            <a href="{{ url_for('product.product', id=product.id)}}"><button class="btn-buy">Buy Now</button></a>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
-
+</div>
   <script>
-    // Change navbar color on scroll
-    window.addEventListener('scroll', function () {
-        var navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.backgroundColor = '#222222'; // Change to your desired color
-        } else {
-            navbar.style.backgroundColor = 'transparent'; // Change to your initial color
-        }
-    });
+     // Change navbar text color on scroll
+  window.addEventListener('scroll', function () {
+      var navbar = document.querySelector('.navbar');
+      var navbarLinks = navbar.querySelectorAll('.nav-link'); // Selecting all navbar links with the class 'nav-link'
+
+      if (window.scrollY > 50) {
+          navbar.classList.remove('navbar-dark');
+          navbar.classList.add('navbar-light');
+          navbarLinks.forEach(function(link) {
+              link.style.color = '#f4583f'; // Change to your desired text color when scrolled
+          });
+      } else {
+          navbar.classList.remove('navbar-light');
+          navbar.classList.add('navbar-dark');
+          navbarLinks.forEach(function(link) {
+              link.style.color = '#ffffff'; // Change to your desired text color when not scrolled
+          });
+      }
+  });
   </script>
 
 {% endblock %}

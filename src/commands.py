@@ -18,11 +18,20 @@ def init_db():
 def populate_db():
 
     click.echo("Creating products")
-    product1 = Product(title='Shirt', price=100, img='1.j.jpg')
-    product2 = Product(title='Shoes', price=200, img='1-01.jpeg')
+    product1 = Product(title='Shirt', price=100, img='angel-black-01.png')
+    product2 = Product(title='Shoes', price=200, img='medusa-black-01.png')
+    product3 = Product(title= "Angel", price=300, img="fish-black-01.png")
+    product4 = Product(title='Shoes', price=200, img='medusa-black-01.png')
+    product5 = Product(title= "Angel", price=300, img="angel-black-01.png")
+    product6 = Product(title= "Angel", price=300, img="fish-black-01.png")
+
 
     product1.create()
     product2.create()
+    product3.create()
+    product4.create()
+    product5.create()
+    product6.create()
     click.echo("Created products")
 
 
