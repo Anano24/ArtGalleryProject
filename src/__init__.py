@@ -4,7 +4,7 @@ from src.config import Config
 from src.commands import init_db, populate_db
 from src.extentions import db, migrate, login_manager
 from src.views import main_blueprint, gallery_blueprint, about_blueprint, product_blueprint
-from src.models import Product
+from src.models import Product, Image
 # from src.admin import admin, SecureModelView, SecureIndexView, UserView, ProductView, RequestView
 
 
@@ -26,6 +26,7 @@ COMMANDS = [
 def create_app():
     app = Flask(__name__, template_folder="template")
     app.config.from_object(Config)
+    app.debug = True
 
     register_extension(app)
     register_blueprints(app)

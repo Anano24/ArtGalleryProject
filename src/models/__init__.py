@@ -1,1 +1,1 @@
-from src.models.product import Product
+from src.models.product import Product, Image

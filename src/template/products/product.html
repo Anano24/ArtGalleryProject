@@ -1,22 +1,117 @@
-{% extends 'layouts/base.html'%}
+{% extends 'layouts/base.html' %}
+
 
 {% block title %}
   Product page
 {% endblock %}
 
-{% block content%}
-<div class="container mt-5 mb-5">
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
-      <div class="col">
-        <div class="card h-100">
-          <img src="{{ url_for('static', filename='img/' + product.img) }}" class="card-img-top" alt="{{product.title}}" style="height: 55%;">
-          <div class="card-body">
-            <h5 class="card-title">Product name: {{ product.title}}</h5>
-            <p class="card-text"> Price: {{ product.price}}</p>
-            <a href="#" class="btn btn-primary">Buy Now</a>
+
+{% block content %}
+
+  <div class="container mt-5 mb-5">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col">
+          <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for image in product.images %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <img src="{{ url_for('static', filename='img/' + image.filename) }}" class="d-block w-100" alt="{{ product.title }}">
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        </div>
+        <div class="col">
+          <div class="card-body" style="margin-left: 60px;">
+              <h2 class="card-title">Product name: {{ product.title }}</h2>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text"> Price: {{ product.price }}$</p>
+              <a href="#" class="btn-buy">Buy Now</a>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Other Products Section -->
+  <div class="container">
+    <h2>Other Products</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+      {% for other_product in other_products.items %}
+      <div class="col mt-5 mb-5">
+        <div class="card h-100" style="border: none; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+          <a href="{{ url_for('product.product', id=other_product.id)}}">
+            <img src="{{ url_for('static', filename='img/' + other_product.images[0].filename) }}" class="card-img-top" alt="{{ other_product.title }}" >
+          </a>
+          <div class="card-body" style="padding: 10px 0 0; text-align: center;">
+            <h5 class="card-title">{{ other_product.title }}</h5>
+            <p class="card-text" style="color: red;"> {{ other_product.price }}$</p>
+            <a href="{{ url_for('product.product', id=other_product.id)}}" class="btn-buy">Buy Now</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination links -->
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <nav aria-label="Other Products Pagination">
+        <ul class="pagination">
+          {% if other_products.has_prev %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ other_products.prev_num }}" style="color: #777777;">Previous</a>
+          </li>
+          {% endif %}
+          {% for num in other_products.iter_pages() %}
+          {% if num %}
+          <li class="page-item {% if num == other_products.page %}active{% endif %}">
+            <a class="page-link{% if num == other_products.page %} active-link{% endif %}" href="?page={{ num }}" style="color: #777777;">{{ num }}</a>
+          </li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">...</span></li>
+          {% endif %}
+          {% endfor %}
+          {% if other_products.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ other_products.next_num }}" style="color: #777777;">Next</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+  <script>
+    // Change navbar text color on scroll
+   window.addEventListener('scroll', function () {
+     var navbar = document.querySelector('.navbar');
+     var navbarLinks = navbar.querySelectorAll('.nav-link'); // Selecting all navbar links with the class 'nav-link'
+
+     if (window.scrollY > 50) {
+         navbar.classList.remove('navbar-dark');
+         navbar.classList.add('navbar-light');
+         navbarLinks.forEach(function(link) {
+             link.style.color = '#f4583f'; // Change to your desired text color when scrolled
+         });
+     } else {
+         navbar.classList.remove('navbar-light');
+         navbar.classList.add('navbar-dark');
+         navbarLinks.forEach(function(link) {
+             link.style.color = '#ffffff'; // Change to your desired text color when not scrolled
+         });
+     }
+   });
+  </script>
+
 {% endblock %}
+
