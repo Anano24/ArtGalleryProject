@@ -13,28 +13,29 @@
             <img class="d-block w-100" alt="..." src="{{ url_for('static', filename='img/' + 'bg-portret-bg.png') }}">
         </div>
       </div>
-      <div class="header-txt">
-          <p>It is my art gallery page!</p>
-      </div>
-      <div class="btn-container ">
-          <a  href="{{ url_for('gallery.gallery_page') }}">
-            <button type="button" class="gallery-btn">View our Gallery</button>
-          </a>
+      <div class="header-box">     
+        <p class="header-txt"><span style="font-style: italic; font-size: 200;">IT</span> IS MY <span style="font-style: italic;">GALLERY</span> PAGE</p>
+        
+        <div class="btn-container ">
+            <a  href="{{ url_for('gallery.gallery_page') }}">
+              <button type="button" class="gallery-btn">View our Gallery</button>
+            </a>
+        </div>
       </div>
   </div>
   
     
     <div class="container-md mt-5">
-      <p class="quote-txt">Ther Is some quote about art! <br>Some quote again.</p> 
+      <p class="quote-txt">Ther Is some <span style="font-style: italic; color: #9a0f0f;">quote</span> about art! Some <span style="font-style: italic; color: #9a0f0f;">quote</span> again.</p> 
     </div>
-    <div class="line-container">
+    <div class="line-container" style="margin-bottom: 30px;">
       <div class="line"></div>
     </div>
     
 
     <div class="container-md">   
         <div class="content-container ">
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            <p style="color: #F6F5F5;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -42,18 +43,19 @@
         </div>     
     </div>
 
-    <div class="about-container position-relative">
-      <h2 style="color: white;">About|Contact</h2>
-      <p style="color: white;">Learn more about Anano Robakidze’s life and legacy.</p>
-      
+    <div class="about-container position-relative container-md">
+      <h2 class="about-title">About|Contact</h2>
+      <p style="color: #F6F5F5;">Learn more about Anano Robakidze’s life and legacy.</p>
       <div>
-        <a href="{{ url_for('gallery.gallery_page') }}">
-          <button type="button" class="gallery-btn">View</button>
+        <a href="{{ url_for('about.about_page') }}">
+          <button type="button" class="about-btn">View</button>
         </a>
       </div>
 
-      <div class="about-img-container">
-
+      <div>
+        <a href="{{ url_for('about.about_page') }}">
+          <img class="about-img-container" src="../static/img/Artboard 1an.png">
+        </a>  
       </div>
 
     </div>
@@ -61,7 +63,7 @@
 
     
     <div class="carusel-shop-container">
-        <h4 class="carousel-shop-title">ANANO ROBAKIDZE SHOP</h4>
+        <h4 class="carousel-shop-title">A.R.<span style="font-style: italic;">SHOP</span></h4>
         <div id="carouselExampleSlidesOnly" class="carousel slide mt-3" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active carousel-item-costum" data-bs-interval="1700">
@@ -104,16 +106,19 @@
             </div>
           </div>
         </div>
+        <div class="line-container" style="margin-top: 50px;">
+          <div class="line"></div>
+        </div>
         <div class="container-md mt-5">
           <div class="content-container ">
-              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              <p class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                   magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
               </p> 
           </div>
           <div style="display: flex; justify-content: center; margin-bottom: 60px;">
-              <a href="{{ url_for('product.products') }}" class="btn"> VIEW SHOP </a>
+              <a href="{{ url_for('product.products') }}" class="btn" style="color: #9a0f0f;"> VIEW SHOP </a>
           </div>
         </div>
     </div>

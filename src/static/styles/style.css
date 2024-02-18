@@ -1,3 +1,60 @@
+@font-face {
+  font-family: 'IvyMode';
+  src: url('../static/fonts/ivy-mode-8.ttf') format('truetype'), /* TTF */
+       url('../static/fonts/ivy-mode-8.woff') format('woff'), /* WOFF */
+       url('../static/fonts/ivy-mode-8.woff2') format('woff2'); /* WOFF2 */
+       font-weight: 600;
+  /* Add more src declarations for other formats if needed */
+}
+
+@font-face {
+  font-family: 'IvyMode';
+  src: url('../static/fonts/ivy-mode-7.ttf') format('truetype'), /* Bold font file */
+       url('../static/fonts/ivy-mode-7.woff') format('woff'),
+       url('../static/fonts/ivy-mode-7.woff2') format('woff2');
+  font-weight: 600; /* Specify the bold font weight */
+}
+
+@font-face {
+  font-family: 'IvyMode';
+  src: url('../static/fonts/ivy-mode-6.ttf') format('truetype'), /* Bold font file */
+       url('../static/fonts/ivy-mode-6.woff') format('woff'),
+       url('../static/fonts/ivy-mode-6.woff2') format('woff2');
+  font-weight: normal; /* Specify the bold font weight */
+}
+
+@font-face {
+  font-family: 'IvyMode';
+  src: url('../static/fonts/ivy-mode-3.ttf') format('truetype'), /* Bold font file */
+       url('../static/fonts/ivy-mode-3.woff') format('woff'),
+       url('../static/fonts/ivy-mode-3.woff2') format('woff2');
+  font-weight: normal; /* Specify the bold font weight */
+}
+
+@font-face {
+  font-family: 'IvyMode';
+  src: url('../static/fonts/ivy-mode-5.ttf') format('truetype'), /* Bold font file */
+       url('../static/fonts/ivy-mode-5.woff') format('woff'),
+       url('../static/fonts/ivy-mode-5.woff2') format('woff2');
+  font-weight: 200; /* Specify the bold font weight */
+}
+
+@font-face {
+  font-family: 'IvyMode';
+  src: url('../static/fonts/ivy-mode-4.ttf') format('truetype'), /* Bold font file */
+       url('../static/fonts/ivy-mode-4.woff') format('woff'),
+       url('../static/fonts/ivy-mode-4.woff2') format('woff2');
+  font-weight: 200; /* Specify the bold font weight */
+}
+
+
+body {
+   /* Use the font-family you specified */
+  font-family: 'IvyMode';
+}
+
+
+
 html {
   box-sizing: border-box;
 }
@@ -11,6 +68,7 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background-color: #181717;
     
 }
 
@@ -19,6 +77,17 @@ body {
     background-color: rgba(0, 123, 255, 0);
     height: 10%;
     transition: background-color 0.8s ease-in-out;
+}
+
+.navbar-brand {
+    color:#9a0f0f;
+    font-weight: 600;
+    font-size: 24px;
+    border-color: transparent;
+    border-style: solid;
+    line-height: 28px;
+    text-transform: uppercase;
+    letter-spacing: -2px;
 }
 
 .content-container {
@@ -34,48 +103,51 @@ body {
     filter: grayscale(10%) contrast(90%) brightness(40%);
   }
 
-.header-txt {
+
+.header-box {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%; /* Ensure the button takes up the full width of the container */
   text-align: center;
-  color: white;
-  font-size: 55px;
-  font-weight: 600;
+    
+}
+
+.header-txt {
+    color: #F6F5F5;
+    font-size: 140px;
+    font-weight: 400;
+    border-color: transparent;
+    border-style: solid;
+    line-height: 140px;
 }
 
   
 .btn-container {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-   /* Ensure the button takes up the full width of the container */
-  text-align: center;
+  margin-top: 50px; /* Add margin for spacing between text and button */
   
 }
 .gallery-btn {
-  color: white;
-  background-color: #f4583f;
-  width: 20%;
-  height: 45px;
-  border-radius: 0;
-  border: none;
+    color: #F6F5F5;
+    background-color: #9a0f0f;
+    width: 40%;
+    height: 45px;
+    border-radius: 0;
+    border: none;
+    transition-duration: 0.3s;
 }
 .gallery-btn:hover {
-  color:brown;
-  background-color: rgb(42, 207, 106);
+    background-color: red;
 }
 
 
 .quote-txt {
   text-align: center;
-  color: #222222;
-  font-size: 40px;
-  font-weight: 600;
+  color: #F6F5F5;
+  font-size: 50px;
+  font-weight: 200;
+  text-transform: uppercase;
+  margin: 150px 0 40px;
 }
 
 .line-container {
@@ -84,44 +156,66 @@ body {
 }
 
 .line {
-  border-top: solid 3px #222222;
+  border-top: solid 3px #9a0f0f;
   width: 50%;
 }
 
 h4 {
   text-align: center;
-  color: #f4583f;
+  color:#9a0f0f;
   font-size: 40px;
   font-weight: 600;
 
 }
 
 .about-container {
-  padding: 20px;
-  margin-top: 150px;
-  margin-bottom: 200px;
+  padding: 30px;
+  margin-top: 200px;
+  margin-bottom: 150px;
   width: 100%;
-  height: 270px;
-  background-color: #222222;
+  height: 280px;
+  background-color: transparent;
+  border: 1px solid #9a0f0f;
 }
 
 .about-img-container {
   position: absolute;
-  top: -50px;
-  right: 50px;
+  top: -40px;
+  right: 30px;
+  width: 50%;
+  height: 130%;
+  transition: transform 0.5s ease;
+}
+
+.about-img-container:hover {
+  transform: scale(1.1); /* Adjust the scale factor as needed */ 
+}
+
+.about-title {
+    color: #F6F5F5;
+    font-size: 80px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.about-btn {
+  color: #F6F5F5;
+  background-color: #9a0f0f;
   width: 40%;
-  height: 140%;
-  background-color: #f5735e;
+  height: 45px;
+  border-radius: 0;
+  border: none;
+  transition-duration: 0.3s;
+  
+}
+.about-btn:hover {
+    background-color: red;
+    
 }
 
 .carousel-item-costum {
   transition: transform 2s ease, opacity .5s ease-out !important;
 }
-
-#test-style {
-  background-color: red;
-}
-
 
 
 #video-background {
@@ -139,7 +233,7 @@ h4 {
   display: flex;
   justify-content: center;
   margin: 80px 0 80px;
-  color: red;
+  color:#9a0f0f;
   margin-top: 52px;
 }
 
@@ -156,7 +250,7 @@ h4 {
 }
 
 .carusel-shop-container {
-    background-color: #f4f4f2;
+    background-color: #181717;
     display: flex; 
     flex-direction: column; /* Stack children vertically */
     height: auto; /* Let the container adjust its height based on content */
@@ -164,15 +258,28 @@ h4 {
 }
 
 .carousel-shop-title {
-    margin: 50px 0 40px;
+    margin: 80px 0 50px;
     text-align: center;
-    color:#f4583f;
-    font-size: 40px;
+    color:#9a0f0f;
+    font-size: 70px;
     font-weight: 400;
 }
 
 .nav-link {
-  color: #f4583f;
+  color: #9a0f0f;
+}
+
+.text {
+    color: #F6F5F5;
+}
+
+.text-body-secondary {
+    color: #999999 !important; 
+}
+
+.main-about-txt {
+    color:#F6F5F5;
+    margin: 100px 0 150px;
 }
 
 

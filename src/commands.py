@@ -44,12 +44,12 @@ def populate_db():
 
     click.echo("Creating products")
     product_data = [
-        {"title": "Shirt", "price": 100, "description":"", "images": ["angel-black-01.png"]},
-        {"title": "Shoes", "price": 200, "description":"", "images": ["medusa-black-01.png"]},
-        {"title": "Angel", "price": 300, "description":"", "images": ["fish-black-01.png"]},
-        {"title": "Shirt", "price": 100, "description":"", "images": ["9qa.png"]},
-        {"title": "Shoes", "price": 200, "description":"Add some description", "images": ["angel_new_dark-01.png", "1.j.jpg"]},
-        {"title": "Angel", "price": 300, "description":"Add some description for this artwork.", "images": ["fish_new_dark-01.png", "angel-black-01.png"]},
+        {"title": "Shirt", "price": 100, "description":"", "images": ["gallery-she-01.png", "angel-black-01.png"]},
+        {"title": "Shoes", "price": 200, "description":"", "images": ["gallery-gold-01.png", "medusa-black-01.png"]},
+        {"title": "Angel", "price": 300, "description":"", "images": ["gallery-medusa-01.png", "fish-black-01.png"]},
+        {"title": "Shirt", "price": 100, "description":"", "images": ["gallery-back-01.png"]},
+        {"title": "Shoes", "price": 200, "description":"Add some description", "images": ["gallery-fish-01.png", "1.j.jpg"]},
+        {"title": "Angel", "price": 300, "description":"Add some description for this artwork.", "images": ["gallery-angel-01.png", "angel-black-01.png"]},
         # Add more products as needed
     ]
 
@@ -64,11 +64,12 @@ def populate_db():
 
 
     click.echo("Creating gallery items")
-    item1 = GalleryItem(title="Fish", description="medium: acrylic, textile, charcoal on canvase size: 60X50", img="tevzi3.png")
-    item2 = GalleryItem(title="Fish", description="medium: acrylic, textile, charcoal on canvase size: 60X50", img="tevzi3.png")
-    item3 = GalleryItem(title="Woman", description="medium: acrylic, charcoal on canvase size: 60X50", img="1-01.jpeg")
-    item4 = GalleryItem(title="Fish", description="medium: acrylic, textile on canvase size: 60X50", img="gallery-medusa-01.png")
-    item5 = GalleryItem(title="Fish", description="medium: acrylic, textile, charcoal on canvase size: 60X50", img="gallery-she-01.png")
+    item1 = GalleryItem(title="Fish", description="medium: acrylic, textile, charcoal on canvase size: 60X50", img="gallery-she-01.png")
+    item2 = GalleryItem(title="Fish", description="medium: acrylic, textile, charcoal on canvase size: 60X50", img="gallery-gold-01.png")
+    item3 = GalleryItem(title="Woman", description="medium: acrylic, charcoal on canvase size: 60X50", img="gallery-medusa-01.png")
+    item4 = GalleryItem(title="Fish", description="medium: acrylic, textile on canvase size: 60X50", img="gallery-back-01.png")
+    item5 = GalleryItem(title="Fish", description="medium: acrylic, textile, charcoal on canvase size: 60X50", img="gallery-fish-01.png")
+    item6 = GalleryItem(title="Fish", description="medium: acrylic, textile, charcoal on canvase size: 60X50", img="gallery-angel-01.png")
 
     
     item1.create()
@@ -76,6 +77,7 @@ def populate_db():
     item3.create()
     item4.create()
     item5.create()
+    item6.create()
     
 
     click.echo("Database populated!")

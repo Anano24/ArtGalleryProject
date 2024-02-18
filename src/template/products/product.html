@@ -9,8 +9,8 @@
 {% block content %}
 <div class="container mb-5" style="margin-top: 7%;" >
   <!-- style="margin-top: 120px;" -->
-  <div class="card mb-5" style="border: none;">
-    <div class="row g-0 mb-5">
+  <div class="card " style="border: 1px solid #9a0f0f; background-color: #222222; border-radius: 0;">
+    <div class="row g-0">
       <div class="col">
         <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -32,30 +32,33 @@
       </div>
       <div class="col">
         <div class="card-body" style="margin-left: 60px;">
-            <h2 class="card-title" style="margin-top: 20%;">Product name: {{ product.title }}</h2>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="card-text"> Price: {{ product.price }}$</p>
+            <h2 class="card-title product-card-title" >{{ product.title }}</h2>
+            <p class="card-text text">{{ product.description }}</p>
+            <p class="card-text text"> Price: {{ product.price }}$</p>
             <a href="#" class="btn-buy">Buy Now</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-<hr>
+
 
 <!-- Other Products Section -->
 <div class="container-fluid gallery-container">
   <div class="container-md">
-    <h2 class="gallery-header">OTHER ARTWORKS</h2>
+    <h2 class="other-product-header">OTHER <span style="font-style: italic; color: #9a0f0f;">ARTWORKS</span></h2>
+    <div class="line-container" style="margin-bottom: 30px;">
+      <div class="line"></div>
+    </div>
     <div class="row row-cols-1 row-cols-md-4 g-3"> <!-- Changed from 'row-cols-md-3' to 'row-cols-md-4' -->
       {% for other_product in other_products.items %}
       <div class="col mt-5 mb-5">
-        <div class="card h-100" style="border: none; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+        <div class="card h-100" style="border: none; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); background-color: transparent; border-radius: 0px;">
           <a href="{{ url_for('product.product', id=other_product.id)}}">
             <img src="{{ url_for('static', filename='img/' + other_product.images[0].filename) }}" class="card-img-top" alt="{{ other_product.title }}" >
           </a>
           <div class="card-body" style="padding: 10px 0 0; text-align: center;">
-            <h5 class="card-title">{{ other_product.title }}</h5>
+            <h5 class="card-title" style="color:#777777;">{{ other_product.title }}</h5>
             <p class="card-text" style="color: red;"> {{ other_product.price }}$</p>
             <a href="{{ url_for('product.product', id=other_product.id)}}" class="btn-buy">Buy Now</a>
           </div>
@@ -71,13 +74,13 @@
         <ul class="pagination">
           {% if other_products.has_prev %}
           <li class="page-item">
-            <a class="page-link" href="?page={{ other_products.prev_num }}" style="color: #777777;">Previous</a>
+            <a class="page-link" href="?page={{ other_products.prev_num }}" style="color: #9a0f0f;">Previous</a>
           </li>
           {% endif %}
           {% for num in other_products.iter_pages() %}
           {% if num %}
           <li class="page-item {% if num == other_products.page %}active{% endif %}">
-            <a class="page-link{% if num == other_products.page %} active-link{% endif %}" href="?page={{ num }}" style="color: #777777;">{{ num }}</a>
+            <a class="page-link{% if num == other_products.page %} active-link{% endif %}" href="?page={{ num }}" style="color: #9a0f0f;">{{ num }}</a>
           </li>
           {% else %}
           <li class="page-item disabled"><span class="page-link">...</span></li>
@@ -85,7 +88,7 @@
           {% endfor %}
           {% if other_products.has_next %}
           <li class="page-item">
-            <a class="page-link" href="?page={{ other_products.next_num }}" style="color: #777777;">Next</a>
+            <a class="page-link" href="?page={{ other_products.next_num }}" style="color: #9a0f0f;">Next</a>
           </li>
           {% endif %}
         </ul>
@@ -94,9 +97,6 @@
   </div>
 </div>
 
-
-
-<script src="{{ url_for('static', filename='scripts/scroll_nav_bg_color.js') }}"></script>
 
 
 
