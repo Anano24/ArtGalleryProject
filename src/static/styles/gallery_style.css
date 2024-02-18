@@ -11,16 +11,35 @@
 }
 
 .gallery-header {
-    display: flex;
-    justify-content: center;
-    margin: 80px 0 80px;
-    color: red;
-    margin-top: 52px;
+    margin: 60px 0 50px;
+    text-align: center;
+    color:#f4583f;
+    font-size: 30px;
+    font-weight: 400;
 }
 
 .main-gallery-txt {
     margin: 92px 0;
 }
+
+
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Adjust opacity as needed */
+    color: white; /* Text color */
+    display: none; /* Initially hidden */
+    transition: opacity 0.3s; /* Add transition for smooth effect */
+}
+
+.card:hover .card-img-overlay {
+    display: block; /* Show on hover */
+    height: 40%;
+}
+
 
 .gallery-img {
     transition: transform 0.5s ease;
@@ -28,5 +47,13 @@
 
 .gallery-img:hover {
     transform: scale(1.1); /* Adjust the scale factor as needed */
+    
 }
 
+.gallery-container {
+    background-color: #f4f4f2;
+    display: flex; 
+    flex-direction: column; /* Stack children vertically */
+    height: auto; /* Let the container adjust its height based on content */
+    margin-bottom: 20px;
+}

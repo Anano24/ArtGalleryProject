@@ -18,30 +18,23 @@
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </p>
     </div>
-    <hr>
+    <hr class="container-md">
     <h1 class="gallery-header">VIEW IMAGES</h1>
 
-    <div class="container-md">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-            <div class="card h-100">
-                <img src="{{ url_for('static', filename='img/' + 'tevzi3.png') }}"" class="card-img-top gallery-img zoomable" alt="...">
-            </div>
-            </div>
-            <div class="col">
-            <div class="card h-100">
-                <img src="{{ url_for('static', filename='img/' + '1-01.jpeg') }}" class="card-img-top gallery-img zoomable" alt="...">
-            </div>
-            </div>
-            <div class="col">
-            <div class="card h-100">
-                <img src="{{ url_for('static', filename='img/' + 'IMG_20211114_153538_776 (1).jpg') }}" class="card-img-top gallery-img zoomable" alt="...">
-            </div>
-            </div>
-            <div class="col">
-            <div class="card h-100">
-                <img src="{{ url_for('static', filename='img/' + '9qa.png') }}" class="card-img-top gallery-img zoomable" alt="...">
-            </div>
+    <div class="container-fluid gallery-container mb-5">
+        <div class="container-md mt-5 mb-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for item in gallery_items %}
+                <div class="col">
+                    <div class="card h-100" style="border: none; background-color: transparent;">
+                        <img src="{{ url_for('static', filename='img/' + item.img) }}" class="card-img-top gallery-img zoomable" alt="...">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title gallery-item-title" style="text-align: center; margin-top: 4%;">{{ item.title }}</h5>
+                            <p class="card-text gallery-item-description" style="text-align: center;"><small>{{ item.description }}</small></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}  
             </div>
         </div>
     </div>
@@ -54,4 +47,31 @@
         });
     </script>
 
+    
+<!-- <script>
+    // Change navbar text color on scroll
+   window.addEventListener('scroll', function () {
+     var navbar = document.querySelector('.navbar');
+     var navbarLinks = navbar.querySelectorAll('.nav-link'); // Selecting all navbar links with the class 'nav-link'
+
+     if (window.scrollY > 50) {
+         navbar.classList.remove('navbar-dark');
+         navbar.classList.add('navbar-light');
+         navbarLinks.forEach(function(link) {
+             link.style.color = '#f4583f'; // Change to your desired text color when scrolled
+         });
+     } else {
+         navbar.classList.remove('navbar-light');
+         navbar.classList.add('navbar-dark');
+         navbarLinks.forEach(function(link) {
+             link.style.color = '#ffffff'; // Change to your desired text color when not scrolled
+         });
+     }
+   });
+ </script> -->
+
+
+ 
+
+   
 {% endblock %}

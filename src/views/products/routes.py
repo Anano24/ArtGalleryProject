@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, Blueprint, request, jsonify
+from flask import render_template, redirect, url_for, Blueprint, request
 
 
 from src.models import Product
@@ -18,7 +18,7 @@ def product(id):
 
     # Pagination for other products
     page = request.args.get('page', 1, type=int)
-    per_page = 3  # Number of other products per page
+    per_page = 4  # Number of other products per page
     other_products_pagination = other_products.paginate(page=page, per_page=per_page, error_out=False)
     other_products_on_page = other_products_pagination.items
     total_pages = other_products_pagination.pages
@@ -32,7 +32,7 @@ def product(id):
 def products():
 
     page = request.args.get('page', 1, type=int)
-    per_page = 3  # Number of products per page
+    per_page = 6  # Number of products per page
     pagination = Product.query.paginate(page=page, per_page=per_page, error_out=False)
     products_on_page = pagination.items
     total_pages = pagination.pages

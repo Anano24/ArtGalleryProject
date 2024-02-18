@@ -36,6 +36,14 @@
     transform: scale(1.1);
 }
 
+.card-img-top-item {
+    transition: transform 0.5s ease;
+}
+
+.card-img-top-item:hover{
+    transform: scale(1.8);
+}
+
 .page-link {
     border-radius: 0 !important;
 }

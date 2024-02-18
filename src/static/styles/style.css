@@ -17,7 +17,7 @@ body {
 
 .navbar {
     background-color: rgba(0, 123, 255, 0);
-    height: 11%;
+    height: 10%;
     transition: background-color 0.8s ease-in-out;
 }
 
@@ -62,8 +62,8 @@ body {
   background-color: #f4583f;
   width: 20%;
   height: 45px;
-  border-radius: 5px;
-  border: 2px solid white;
+  border-radius: 0;
+  border: none;
 }
 .gallery-btn:hover {
   color:brown;
@@ -153,6 +153,26 @@ h4 {
 
 .gallery-img:hover {
   transform: scale(1.1); /* Adjust the scale factor as needed */
+}
+
+.carusel-shop-container {
+    background-color: #f4f4f2;
+    display: flex; 
+    flex-direction: column; /* Stack children vertically */
+    height: auto; /* Let the container adjust its height based on content */
+    margin-bottom: 20px; /* Add some spacing between containers */
+}
+
+.carousel-shop-title {
+    margin: 50px 0 40px;
+    text-align: center;
+    color:#f4583f;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.nav-link {
+  color: #f4583f;
 }
 
 
