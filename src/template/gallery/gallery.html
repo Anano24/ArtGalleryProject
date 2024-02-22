@@ -26,13 +26,13 @@
     <div class="container-fluid gallery-container mb-5">
         <div class="container-md mt-5 mb-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                {% for item in gallery_items %}
+                {% for product in products %}
                 <div class="col">
                     <div class="card h-100" style="border: 1px solid #9a0f0f; background-color: transparent;">
-                        <img src="{{ url_for('static', filename='img/' + item.img) }}" class="card-img-top gallery-img zoomable" alt="...">
+                        <img src="{{ url_for('static', filename='img/' + product.images[0].filename) }}" class="card-img-top gallery-img zoomable" alt="...">
                         <div class="card-img-overlay">
-                            <h5 class="card-title gallery-item-title" style="text-align: center; margin-top: 4%;">{{ item.title }}</h5>
-                            <p class="card-text gallery-item-description" style="text-align: center;"><small>{{ item.description }}</small></p>
+                            <h5 class="card-title gallery-item-title" style="text-align: center; margin-top: 4%;">{{ product.title }}</h5>
+                            <p class="card-text gallery-item-description" style="text-align: center;"><small>{{ product.description }}</small></p>
                         </div>
                     </div>
                 </div>
