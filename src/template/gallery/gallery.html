@@ -31,8 +31,15 @@
                     <div class="card h-100" style="border: 1px solid #9a0f0f; background-color: transparent;">
                         <img src="{{ url_for('static', filename='img/' + product.images[0].filename) }}" class="card-img-top gallery-img zoomable" alt="...">
                         <div class="card-img-overlay">
-                            <h5 class="card-title gallery-item-title" style="text-align: center; margin-top: 4%;">{{ product.title }}</h5>
-                            <p class="card-text gallery-item-description" style="text-align: center;"><small>{{ product.description }}</small></p>
+                            <h5 class="card-title gallery-item-title" style="text-align: center; margin-top: 3%;">{{ product.title }}</h5>
+                            <p class="card-text gallery-item-description" style="text-align: center; margin: 0 15%;"><small>{{ product.description }}</small></p>
+
+                            {% if current_user.is_authenticated and current_user.is_admin() %}
+                            <div style="display: flex; justify-content: center;">
+                                <a href="{{ url_for('gallery.edit_gallery', id=product.id)}}" class="btn btn-edit" >Edit</a>
+                            </div>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>

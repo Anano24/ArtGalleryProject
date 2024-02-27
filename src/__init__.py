@@ -3,14 +3,14 @@ from flask import Flask
 from src.config import Config
 from src.commands import init_db, populate_db
 from src.extentions import db, migrate, login_manager
-from src.views import main_blueprint, gallery_blueprint, about_blueprint, product_blueprint
-from src.models import Product, Image
-# from src.admin import admin, SecureModelView, SecureIndexView, UserView, ProductView, RequestView
+from src.views import main_blueprint, gallery_blueprint, about_blueprint, product_blueprint, auth_blueprint
+from src.models import Product, Image, User
+from src.admin import admin, SecureModelView, SecureIndexView, ProductView, UserView
 
 
 
 BLUEPRINTS = [
-    # auth_blueprint,
+    auth_blueprint,
     main_blueprint,
     gallery_blueprint,
     about_blueprint,
@@ -43,18 +43,17 @@ def register_extension(app):
     migrate.init_app(app, db)
 
     # Flask-Login
-    # login_manager.init_app(app)
-    # login_manager.login_view = "auth.login"
+    login_manager.init_app(app)
+    login_manager.login_view = "auth.login"
 
-    # @login_manager.user_loader
-    # def load_user(user_id):
-    #     return User.query.get(user_id)
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(user_id)
 
     # Flask-Admin
-    # admin.init_app(app)
-    # admin.add_view(ProductView(Product, db.session, endpoint="product_panel", category="Products"))
-    # admin.add_view(SecureModelView(ProductCategory, db.session, category="Products"))
-    # admin.add_view(UserView(User, db.session))
+    admin.init_app(app)
+    admin.add_view(ProductView(Product, db.session, endpoint="product_panel", category="Products"))
+    admin.add_view(UserView(User, db.session))
     
 
 def register_commands(app):

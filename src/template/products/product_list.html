@@ -25,6 +25,11 @@
                     <h5 class="card-title" style="color:#777777;">{{ product.title }}</h5>
                     <p class="card-text" style="color: red;">{{ product.price }}$</p>
                     <a href="{{ url_for('product.product', id=product.id) }}" class="btn-buy">Buy Now</a>
+
+                    {% if current_user.is_authenticated and current_user.is_admin() %}
+                    <a href="{{ url_for('product.edit_product', id=product.id) }}" class="btn-buy">Edit</a>
+
+                    {% endif %}
                   </div>
                 </div>
               </div>

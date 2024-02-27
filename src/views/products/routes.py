@@ -1,12 +1,16 @@
 from flask import render_template, redirect, url_for, Blueprint, request
-
+from flask_login import login_required
+from uuid import uuid4
+import os
 
 from src.models import Product
-
+from src.views.products.forms import AddProductForm
+from src.config import Config
 
 
 
 product_blueprint = Blueprint("product", __name__)
+
 
 @product_blueprint.route('/product/<int:id>')
 def product(id):
@@ -40,5 +44,33 @@ def products():
     return render_template('products/product_list.html', products=pagination, total_pages=total_pages, products_on_page=products_on_page, page=page)
 
 
+
+@product_blueprint.route('/edit_product/<int:id>', methods=["GET", "POST"])
+def edit_product(id):
+    product = Product.query.get(id)
+    form = AddProductForm(obj=product)
+
+    if form.validate_on_submit():
+        # Update product attributes from form data
+        product.title = form.title.data
+        product.description = form.description.data
+        product.price = form.price.data
+
+
+        # Upload file if a new one is provided
+        file = form.images.data
+        if file:
+            filename, filetype = file.filename.split(".")
+            filename = str(uuid4())
+            directory = os.path.join(Config.UPLOAD_PATH, f"{filename}.{filetype}")
+            file.save(directory)
+            
+            for image in product.images:
+                image.filename = f"{filename}.{filetype}"
+
+        product.save()
+        return redirect(url_for('product.products'))
+
+    return render_template('products/edit_product.html', form=form)
 
 
