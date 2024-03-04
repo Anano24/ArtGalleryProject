@@ -1,4 +1,4 @@
-
+{% from 'layouts/macros.html' import nav_link %}
 
 <nav class="navbar navbar-dark  fixed-top" >
     <div class="container-md">
@@ -19,30 +19,23 @@
           <span class="navbar-toggler-icon" ></span>
         </button>
         <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
+                <a class="nav-link {{ nav_link('main.home')}}" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('gallery.gallery_page') }}">Gallery</a>
+                <a class="nav-link {{ nav_link('gallery.gallery_page')}}" href="{{url_for('gallery.gallery_page') }}">Gallery</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="{{ url_for('about.about_page') }}">About</a>
+                  <a class="nav-link {{ nav_link('about.about_page')}}" aria-current="page" href="{{ url_for('about.about_page') }}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{{ url_for('product.products') }}">Shop</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Account</a>
+                <a class="nav-link {{ nav_link('product.products')}}" aria-current="page" href="{{ url_for('product.products') }}">Shop</a>
               </li>
             </ul>
-            <form class="d-flex mt-3" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex mt-3" role="search" action="{{ url_for('search.search') }}" method="GET">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query" placeholder="Search">
               <button class="btn btn-success" type="submit">Search</button>
             </form>
           </div>

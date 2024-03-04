@@ -6,8 +6,6 @@
 
 {% block content%}
 
-
-
     <div class="container mt-5">
         {% if form.errors %}
             {% for field, errors in form.errors.items() %}
@@ -18,14 +16,14 @@
                 {% endfor %}
             {% endfor %}
         {% endif %}
-        <div class="bg-white p-3 rounded shadow">
+        <div class="card" style="border: 1px solid #9a0f0f; background-color: #222222; border-radius: 0; padding: 15px; margin: 150px 0 50px;">
             <form method="POST">
                 {{ form.hidden_tag() }}
                 {{ form.username(class="form-control mt-2", placeholder=form.username.label.text)}}
                 {{ form.password(class="form-control mt-2", placeholder=form.password.label.text)}}
                 {{ form.confirm_password(class="form-control mt-2", placeholder=form.confirm_password.label.text)}}
                 {{ form.email(class="form-control mt-2", placeholder=form.email.label.text)}}
-                {{ form.submit(class="btn btn-primary mt-2")}}
+                {{ form.submit(class="btn btn-edit mt-2")}}
             </form>
         </div>
     </div>

@@ -115,7 +115,7 @@ body {
 
 .header-txt {
     color: #F6F5F5;
-    font-size: 140px;
+    font-size: 120px;
     font-weight: 400;
     border-color: transparent;
     border-style: solid;
@@ -193,7 +193,7 @@ h4 {
 
 .about-title {
     color: #F6F5F5;
-    font-size: 80px;
+    font-size: 50px;
     font-weight: 400;
     font-style: italic;
 }

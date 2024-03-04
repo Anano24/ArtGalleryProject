@@ -4,6 +4,7 @@ from flask_admin.form.upload import ImageUploadField
 
 
 
+
 class ProductView(SecureModelView):
     can_view_details = True
     edit_modal = True
@@ -24,6 +25,15 @@ class ProductView(SecureModelView):
         "images",
     ]
 
+    # def _list_formatter(view, context, model, name):
+    #     """Format images as a list of filenames."""
+    #     return ', '.join([image.filename for image in model.images])
+
+    # column_formatters = {
+    #     'formatted_images': _list_formatter
+    # }
+
+
     form_columns = [
         "title",
         "price",
@@ -31,9 +41,9 @@ class ProductView(SecureModelView):
         "images",
     ]
 
-    form_overrides = {"img": ImageUploadField}
+    form_overrides = {"images": ImageUploadField}
 
-    form_args = {"img": {"base_path": Config.UPLOAD_PATH, "url_relative_path": "img/"}}
+    form_args = {"images": {"base_path": Config.UPLOAD_PATH, "url_relative_path": "img/"}}
 
     column_sortable_list = [
         "title",
