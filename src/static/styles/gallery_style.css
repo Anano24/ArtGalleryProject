@@ -9,20 +9,19 @@
     z-index: -1;
     
 }
-
+  
 .gallery-header {
-    margin: 80px 0 50px;
+    margin: 5rem 0 3.125rem;
     text-align: center;
     color:#F6F5F5;
-    font-size: 70px;
+    font-size: 3.125rem;
     font-weight: 400;
 }
 
 .main-gallery-txt {
-    margin: 92px 0;
+    margin: 5.75rem 0;
     color: #F6F5F5;
 }
-
 
 .card-img-overlay {
     position: absolute;
@@ -52,11 +51,15 @@
 }
 
 .gallery-container {
-    
     display: flex; 
     flex-direction: column; /* Stack children vertically */
     height: auto; /* Let the container adjust its height based on content */
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+}
+
+.gallery-item-card {
+    border: 1px solid #9a0f0f; 
+    background-color: transparent;
 }
 
 .form-control {
@@ -76,4 +79,45 @@
     background-color: transparent;
     border: 1px solid #9a0f0f;
     color: #9a0f0f;
+}
+
+.gallery-item-title {
+    text-align: center; 
+    margin-top: 3%;
+    color: #F6F5F5;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.gallery-item-description {
+    text-align: center; 
+    margin: 0 15%;
+    color: #F6F5F5;
+}
+
+
+
+/* For tablet */
+@media only screen and (max-width: 990px) {
+    .gallery-header {
+        margin: 3.75rem 0 2.1875rem;
+        font-size: 2.5rem;
+    }
+
+}
+
+
+
+/* for mobile screen */
+@media only screen and (max-width: 675px) {
+    .gallery-header {
+        margin: 2.5rem 0 1.875rem;
+        font-size: 1.875rem;
+    }
+
+    .gallery-item-title {
+        margin-top: 7%;
+        font-size: 1.5rem;
+    }
+      
 }

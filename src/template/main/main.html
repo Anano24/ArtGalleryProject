@@ -1,21 +1,20 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-    <div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-bs-ride="carousel">
+  <div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-bs-ride="carousel">
       <div class="carousel-inner" data-bs-slide="fade">
           <div class="carousel-item active header-img" data-bs-interval="1500">
-              <img class="d-block w-100" alt="..." src="{{ url_for('static', filename='img/' + 'Artboard 2.png') }}">
+              <img class="d-block w-100" alt="carousel image" src="{{ url_for('static', filename='img/' + 'Artboard 2.png') }}">
           </div>
           <div class="carousel-item header-img" data-bs-interval="1500">
-              <img class="d-block w-100" alt="..." src="{{ url_for('static', filename='img/' + 'bg-portret.png') }}">
+              <img class="d-block w-100" alt="carousel image" src="{{ url_for('static', filename='img/' + 'bg-portret.png') }}">
           </div>
           <div class="carousel-item header-img" data-bs-interval="1500">
-            <img class="d-block w-100" alt="..." src="{{ url_for('static', filename='img/' + 'bg-portret-bg.png') }}">
+            <img class="d-block w-100" alt="carousel image" src="{{ url_for('static', filename='img/' + 'bg-portret-bg.png') }}">
         </div>
       </div>
-      <div class="header-box">     
-        <p class="header-txt"><span style="font-style: italic; font-size: 200;">IT</span> IS MY <span style="font-style: italic;">GALLERY</span> PAGE</p>
-        
+      <div class="header-box" >  
+        <p class="header-txt">A.R. ART GALLERY </p>
         <div class="btn-container ">
             <a  href="{{ url_for('gallery.gallery_page') }}">
               <button type="button" class="gallery-btn">View our Gallery</button>
@@ -23,105 +22,96 @@
         </div>
       </div>
   </div>
-  
-    
-    <div class="container-md mt-5">
-      <p class="quote-txt">Ther Is some <span style="font-style: italic; color: #9a0f0f;">quote</span> about art! Some <span style="font-style: italic; color: #9a0f0f;">quote</span> again.</p> 
-    </div>
-    <div class="line-container" style="margin-bottom: 30px;">
+   
+  <div class="container-md mt-5">
+      <p class="quote-txt">'I <span style="font-style: italic; color: #9a0f0f;">dream </span>my painting and I <span style="font-style: italic; color: #9a0f0f;">paint</span> my dream!'</p> 
+  </div>
+  <div class="line-container" >
       <div class="line"></div>
-    </div>
+  </div>
     
 
-    <div class="container-md">   
-        <div class="content-container ">
-            <p style="color: #F6F5F5;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+  <div class="container-md">   
+      <div class="content-container ">
+          <p class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            </p>
-        </div>     
-    </div>
+          </p>
+      </div>     
+  </div>
 
-    <div class="about-container position-relative container-md">
+  <div class="about-container position-relative container-md">
       <h2 class="about-title">About|Contact</h2>
-      <p style="color: #F6F5F5;">Learn more about Anano Robakidze’s life and legacy.</p>
+      <p class="about-content">Learn more about Anano Robakidze’s life and legacy.</p>
       <div>
-        <a href="{{ url_for('about.about_page') }}">
-          <button type="button" class="about-btn">View</button>
-        </a>
+          <a href="{{ url_for('about.about_page') }}">
+            <button type="button" class="about-btn">View</button>
+          </a>
       </div>
-
       <div>
         <a href="{{ url_for('about.about_page') }}">
           <img class="about-img-container" src="../static/img/Artboard 1an.png">
         </a>  
       </div>
-
-    </div>
+  </div>
 
 
     
-    <div class="carusel-shop-container">
-        <h4 class="carousel-shop-title">A.R.<span style="font-style: italic;">SHOP</span></h4>
-        <div id="carouselExampleSlidesOnly" class="carousel slide mt-3" data-bs-ride="carousel">
+  <div class="carousel-shop-container">
+      <h4 class="carousel-shop-title">A.R.<span style="font-style: italic;">SHOP</span></h4>
+      <div id="carouselExampleSlidesOnly" class="carousel slide mt-3" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active carousel-item-costum" data-bs-interval="1700">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                      <a href="{{ url_for('product.products') }}">
-                        <img src="{{ url_for('static', filename='img/' + 'gallery-gold-01.png') }}" class="d-block w-100" alt="...">
-                      </a>  
-                    </div>
-                    <div class="col-md-4">
-                      <a href="{{ url_for('product.products') }}">
-                        <img src="{{ url_for('static', filename='img/' + 'gallery-medusa-01.png') }}" class="d-block w-100" alt="...">
-                      </a>  
-                    </div>
-                    <div class="col-md-4">
-                      <a href="{{ url_for('product.products') }}">
-                        <img src="{{ url_for('static', filename='img/' + 'gallery-she-01.png') }}" class="d-block w-100" alt="...">
-                      </a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item carousel-item-costum" data-bs-interval="1700">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                      <a href="{{ url_for('product.products') }}">
-                        <img src="{{ url_for('static', filename='img/' + 'gallery-transform-01.png') }}" class="d-block w-100" alt="...">
-                      </a>  
-                    </div>
-                    <div class="col-md-4">
-                      <a href="{{ url_for('product.products') }}">
-                        <img src="{{ url_for('static', filename='img/' + 'gallery-fish-01.png') }}" class="d-block w-100" alt="...">
-                      </a>  
-                    </div>
-                    <div class="col-md-4">
-                      <a href="{{ url_for('product.products') }}">
-                        <img src="{{ url_for('static', filename='img/' + 'gallery-woman-01.png') }}" class="d-block w-100" alt="...">
-                      </a>  
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="line-container" style="margin-top: 50px;">
-          <div class="line"></div>
-        </div>
-        <div class="container-md mt-5">
-          <div class="content-container ">
-              <p class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              <!-- First carousel item -->
+              <div class="carousel-item active carousel-item-costum" data-bs-interval="1700">
+                  <div class="row g-0">
+                      {% set start_index = 0 %}
+                      {% set end_index = 3 %}
+                      {% for item in gallery_items[start_index:end_index] %}
+                      <div class="col-md-4">
+                          <a href="{{ url_for('product.products') }}">
+                              <img src="{{ url_for('static', filename='img/' + item.img) }}" class="d-block w-100" alt="card image">
+                          </a>
+                      </div>
+                      {% endfor %}
+                  </div>
+              </div>
+  
+              <!-- Second carousel item -->
+              <div class="carousel-item carousel-item-costum" data-bs-interval="1700">
+                  <div class="row g-0">
+                      {% set start_index = 3 %}
+                      {% set end_index = 6 %}
+                      {% for item in gallery_items[start_index:end_index] %}
+                      <div class="col-md-4">
+                          <a href="{{ url_for('product.products') }}">
+                              <img src="{{ url_for('static', filename='img/' + item.img) }}" class="d-block w-100" alt="card image">
+                          </a>  
+                      </div>
+                      {% endfor %}
+                  </div>
+              </div>
+          </div>         
+      </div>
+  </div>
+  
+
+  <div class="line-container" >
+    <div class="line"></div>
+  </div>
+  <div class="container-md mt-5">
+      <div class="content-container ">
+          <p class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                   magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              </p> 
-          </div>
-          <div style="display: flex; justify-content: center; margin-bottom: 60px;">
-              <a href="{{ url_for('product.products') }}" class="btn" style="color: #9a0f0f;"> VIEW SHOP </a>
-          </div>
-        </div>
-    </div>
+          </p> 
+      </div>
+      <div class="shop-btn">
+          <a href="{{ url_for('product.products') }}" class="btn" style="color: #9a0f0f; margin-top: 1.25rem;"> VIEW SHOP </a>
+      </div>
+  </div>
+    
 
 
   <script src="{{ url_for('static', filename='scripts/scroll_nav_bg_color.js') }}"></script>

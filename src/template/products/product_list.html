@@ -17,13 +17,17 @@
             <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
               {% for product in products.items %}
               <div class="col mt-3 mb-5">
-                <div class="card h-100" style="border: 1px solid #9a0f0f; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); background-color: transparent; border-radius: 0px; ">
+                <div class="card h-100 shop-item" >
                   <a href="{{ url_for('product.product', id=product.id)}}">
-                    <img src="{{ url_for('static', filename='img/' + product.images[0].filename) }}" class="card-img-top">
+                    {% if product.images %}
+                      <img src="{{ url_for('static', filename='img/' + product.images[0].filename) }}" class="card-img-top">
+                    {% else %}
+                    <!-- Handle case where there are no images -->
+                    {% endif %}
                   </a>
                   <div class="card-body" style="padding: 10px 0 0; text-align: center;">
-                    <h5 class="card-title" style="color:#777777;">{{ product.title }}</h5>
-                    <p class="card-text" style="color: red;">{{ product.price }}$</p>
+                    <h5 class="card-title" >{{ product.title }}</h5>
+                    <p class="card-price" >{{ product.price }}$</p>
                     <a href="{{ url_for('product.product', id=product.id) }}" class="btn-buy">Buy Now</a>
 
                     {% if current_user.is_authenticated and current_user.is_admin() %}
@@ -37,7 +41,7 @@
             </div>
 
             <!-- Pagination links -->
-            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 50px;">
+            <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 3.125rem;">
               <nav aria-label="Products Pagination">
                 <ul class="pagination">
                   {% if products.has_prev %}

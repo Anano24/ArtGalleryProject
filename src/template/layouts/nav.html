@@ -6,11 +6,11 @@
       <div style="display: flex; align-items: center;">
         {% if not current_user.is_authenticated %}
         <form role="search">
-          <a class="nav-link" style="color:#9a0f0f; text-decoration: none; margin-right: 25px;" href="{{ url_for('auth.login') }}">Login</a>
+          <a class="nav-link auth-btn" href="{{ url_for('auth.login') }}">Login</a>
         </form>
         {% else %}
         <form role="search">
-          <a href="{{ url_for('auth.logout') }}" class="nav-link" style="color:#9a0f0f; text-decoration: none; margin-right: 25px;" type="submit">Logout</a>
+          <a href="{{ url_for('auth.logout') }}" class="nav-link auth-btn" type="submit">Logout</a>
         </form>
           
         {% endif %}
@@ -36,7 +36,7 @@
             </ul>
             <form class="d-flex mt-3" role="search" action="{{ url_for('search.search') }}" method="GET">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query" placeholder="Search">
-              <button class="btn btn-success" type="submit">Search</button>
+              <button class="btn" style="background-color: #F6F5F5; color: #9a0f0f;" type="submit">Search</button>
             </form>
           </div>
         </div>

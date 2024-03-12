@@ -36,7 +36,7 @@ def product(id):
 def products():
 
     page = request.args.get('page', 1, type=int)
-    per_page = 5  # Number of products per page
+    per_page = 6  # Number of products per page
     pagination = Product.query.paginate(page=page, per_page=per_page, error_out=False)
     products_on_page = pagination.items
     total_pages = pagination.pages
@@ -72,5 +72,7 @@ def edit_product(id):
         return redirect(url_for('product.products'))
 
     return render_template('products/edit_product.html', form=form)
+
+
 
 

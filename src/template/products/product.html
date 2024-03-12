@@ -7,9 +7,8 @@
 
 
 {% block content %}
-<div class="container mb-5" style="margin-top: 7%;" >
-  <!-- style="margin-top: 120px;" -->
-  <div class="card " style="border: 1px solid #9a0f0f; background-color: #222222; border-radius: 0;">
+<div class="container mb-5 product-card-container" >
+  <div class="card shop-item-box">
     <div class="row g-0">
       <div class="col">
         <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -31,10 +30,10 @@
       </div>
       </div>
       <div class="col">
-        <div class="card-body" style="margin-left: 60px;">
-            <h2 class="card-title product-card-title" >{{ product.title }}</h2>
-            <p class="card-text text">{{ product.description }}</p>
-            <p class="card-text text"> Price: {{ product.price }}$</p>
+        <div class="card-body card-body-product">
+            <h2 class="product-card-title" >{{ product.title }}</h2>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-price-btn"> Price: {{ product.price }}$</p>
             <a href="#" class="btn-buy">Buy Now</a>
         </div>
       </div>
@@ -47,19 +46,19 @@
 <div class="container-fluid gallery-container">
   <div class="container-md">
     <h2 class="other-product-header">OTHER <span style="font-style: italic; color: #9a0f0f;">ARTWORKS</span></h2>
-    <div class="line-container" style="margin-bottom: 30px;">
+    <div class="line-container">
       <div class="line"></div>
     </div>
-    <div class="row row-cols-1 row-cols-md-4 g-3"> <!-- Changed from 'row-cols-md-3' to 'row-cols-md-4' -->
+    <div class="row row-cols-1 row-cols-md-4 g-3"> 
       {% for other_product in other_products.items %}
-      <div class="col mt-5 mb-5">
+      <div class="col mb-5">
         <div class="card h-100" style="border: none; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); background-color: transparent; border-radius: 0px;">
           <a href="{{ url_for('product.product', id=other_product.id)}}">
             <img src="{{ url_for('static', filename='img/' + other_product.images[0].filename) }}" class="card-img-top" alt="{{ other_product.title }}" >
           </a>
           <div class="card-body" style="padding: 10px 0 0; text-align: center;">
-            <h5 class="card-title" style="color:#777777;">{{ other_product.title }}</h5>
-            <p class="card-text" style="color: red;"> {{ other_product.price }}$</p>
+            <h5 class="card-title">{{ other_product.title }}</h5>
+            <p class="card-price"> {{ other_product.price }}$</p>
             <a href="{{ url_for('product.product', id=other_product.id)}}" class="btn-buy">Buy Now</a>
           </div>
         </div>

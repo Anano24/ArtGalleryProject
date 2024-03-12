@@ -4,8 +4,8 @@ from src.config import Config
 from src.commands import init_db, populate_db
 from src.extentions import db, migrate, login_manager
 from src.views import main_blueprint, gallery_blueprint, about_blueprint, product_blueprint, auth_blueprint, search_blueprint
-from src.models import Product, Image, User
-from src.admin import admin, SecureModelView, SecureIndexView, ProductView, UserView
+from src.models import Product, User, GalleryItem
+from src.admin import admin, SecureModelView, SecureIndexView, ProductView, UserView, GalleryView
 
 
 
@@ -54,6 +54,7 @@ def register_extension(app):
     # Flask-Admin
     admin.init_app(app)
     admin.add_view(ProductView(Product, db.session, endpoint="product_panel", name="Products"))
+    admin.add_view(GalleryView(GalleryItem, db.session, name="Gallery"))
     admin.add_view(UserView(User, db.session))
     
 

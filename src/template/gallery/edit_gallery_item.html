@@ -5,10 +5,10 @@
     
 
 <div class="container mt-5">
-    <div class="card" style="border: 1px solid #9a0f0f; background-color: #222222; border-radius: 0; padding: 15px; margin: 150px 0 100px;">
+    <div class="card" style="border: 1px solid #9a0f0f; background-color: #222222; border-radius: 0; padding: 15px; margin: 9.375rem 0 6.25rem;">
         <form method="POST" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
-            {{ form.images(class="form-control mt-3", placeholder=form.images.label.text)}}
+            {{ form.img(class="form-control mt-3", placeholder=form.img.label.text)}}
             {{ form.title(class="form-control mt-2", placeholder=form.title.label.text)}}
             {{ form.description(class="form-control mt-2", placeholder=form.description.label.text)}}
             {{ form.submit(class="btn btn-edit mt-2")}}
